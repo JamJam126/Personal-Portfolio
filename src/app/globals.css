@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #0A0A0A;
+  --hover: #262626;
+  --border: #262626;
+  --text: #FAFAFA;
+  --text-sub: #B3B3B3;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-hover: var(--hover);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-text-sub: var(--text-sub);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+}
