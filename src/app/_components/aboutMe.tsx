@@ -32,16 +32,12 @@ const AboutMe: React.FC = () => {
       <div className="flex flex-col gap-4 p-8">
         <div className="flex flex-col gap-1 text-text">
           <h1 className="font-semibold text-2xl">Vong Rithea</h1>
-          <h3 className="text-sm">Full-stack Developer - Based in Cambodia</h3>
+          <h3 className="text-sm text-text-sub">Full-stack Developer - Based in Cambodia</h3>
         </div>
 
-        <p className="text-sm text-text-sub">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+        <p className="text text-text-sub">
+          Backend by heart, full-stack by choice. I enjoy building clean,
+          maintainable, and user-friendly web applications. I approach problems practically and adapt quickly.
         </p>
       </div>
     </section>

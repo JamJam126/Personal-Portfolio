@@ -29,7 +29,7 @@ export default function StarBackground({
         <div
           key={i}
           className="star"
-          style={{
+          style={ { 
             top: `${star.top}vh`,
             left: `${star.left}vw`,
             width: `${star.size}px`,
