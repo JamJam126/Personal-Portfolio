@@ -1,0 +1,9 @@
+export { default as TWatchThumb } from "./tWatchThumb.png";
+export { default as TWatchThumbBg } from "./tWatchThumbBg.png";
+export { default as TWatch1 } from "./tWatch-1.png";
+export { default as TWatch2 } from "./tWatch-2.png";
+export { default as TWatch3 } from "./tWatch-3.png";
+export { default as TWatch4 } from "./tWatch-4.png";
+export { default as TWatch5 } from "./tWatch-5.png";
+export { default as TWatch6 } from "./tWatch-6.png";
+export { default as TWatch7 } from "./tWatch-7.png";

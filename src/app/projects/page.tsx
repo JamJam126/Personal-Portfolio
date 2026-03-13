@@ -1,12 +1,28 @@
-import ProjectCard from "../_components/projectCard";
+'use client'
+
+import { projectsData } from "@/src/repositories/projectsData";
+import ProjectCard, { ProjectCardData } from "../_components/projectCard";
+import { useState } from "react";
+import ProjectModal from "@/src/components/projectModal";
 
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
+
   return (
     <main className="flex flex-col gap-8 p-8 w-full bg-primary">
       <h1 className="font-bold text-2xl text-text">My Projects</h1>
-      <ProjectCard />
-      <ProjectCard />
-      <ProjectCard />
+      {projectsData.map((p, index) => (
+        <ProjectCard
+          key={index}
+          data={p}
+          onClick={() => setSelectedProject(p)}
+        />
+      ))}
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </main>
   );
 }

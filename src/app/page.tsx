@@ -1,11 +1,18 @@
+'use client'
+
 import Link from "next/link";
 import { RightArrowIcon } from "../components/icons/rightArrowIcon";
 import AboutMe from "./_components/aboutMe";
-import ProjectCard from "./_components/projectCard";
+import ProjectCard, { ProjectCardData } from "./_components/projectCard";
 import TechStackCard, { TechStackCardData } from "./_components/techStackCard";
-import { techStacks } from "./techStackData";
+import { techStacks } from "../repositories/techStackData";
+import { projectsData } from "../repositories/projectsData";
+import { useState } from "react";
+import ProjectModal from "../components/projectModal";
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
+
   return (
     <main className="flex flex-col bg-primary">
       <AboutMe />
@@ -38,10 +45,21 @@ export default function Home() {
         </div>
 
         <div className="flex gap-4 w-full">
-          <ProjectCard size="small" />
-          <ProjectCard size="small" />
+          {projectsData.slice(0, 2).map((p, index) => (
+            <ProjectCard
+              key={index}
+              size="small"
+              data={p}
+              onClick={() => setSelectedProject(p)}
+            />
+          ))}
         </div>
       </section>
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </main>
   );
 }
