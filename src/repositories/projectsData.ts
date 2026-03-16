@@ -30,8 +30,8 @@ export const projectsData = [
     thumbnailBackground: TWatch.TWatchThumbBg,
     images: [
       TWatch.TWatch1,
-      // TWatch.TWatch2,
-      // TWatch.TWatch3,
+      TWatch.TWatch2,
+      TWatch.TWatch3,
       TWatch.TWatch4,
       TWatch.TWatch5,
       TWatch.TWatch6,

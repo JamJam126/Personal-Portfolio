@@ -4,8 +4,6 @@ import { GitHubIcon } from "@/src/components/icons/githubIcon";
 import { GlobeIcon } from "@/src/components/icons/globeIcon";
 import { StaticImageData } from "next/image";
 
-
-
 export type ProjectCardData = {
   title: string;
   type: string;
@@ -33,12 +31,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className={`flex flex-col justify-between gap-6 ${size === "large" ? "p-8" : "p-6"} 
-        w-full border border-border rounded-md cursor-pointer`}
+      className={`flex flex-col justify-between gap-6 ${size === "large" ? "p-4 sm:p-8" : "p-4 sm:p-6"} 
+        w-full border border-border rounded-md cursor-pointer hover:-translate-y-1
+        transition-transform duration-150`}
     >
       <div className="flex flex-col gap-6">
         <div
-          className={`relative w-full ${size === "large" ? "h-110" : "h-60"} 
+          className={`relative w-full ${size === "large" ? "h-50 sm:h-110" : "h-60"} 
                     border border-border rounded-t-sm overflow-hidden`}
         >
           <Image
@@ -59,8 +58,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="flex flex-col gap-4 w-full">
           <div className="flex flex-col gap-1">
             <h3 className="font-semibold text-lg text-text">{data.title}</h3>
-            <span className="flex gap-2 text-xs text-text-sub">
-              <p>{data.type}</p> <span>•</span> <p>{data.date}</p>
+            <span className="flex gap-2 text-xs text-text-sub whitespace-pre">
+              <p>{data.type}  •  {data.date}</p>
             </span>
           </div>
           <p className="font-medium text-sm text-text-sub">

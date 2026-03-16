@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<ProjectCardData | null>(null);
 
   return (
-    <main className="flex flex-col gap-8 p-8 w-full bg-primary">
+    <main className="flex flex-col gap-4 sm:gap-8 p-4 sm:p-8 w-full bg-primary">
       <h1 className="font-bold text-2xl text-text">My Projects</h1>
       {projectsData.map((p, index) => (
         <ProjectCard

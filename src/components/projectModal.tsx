@@ -1,28 +1,34 @@
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import { ProjectCardData } from "../app/_components/projectCard";
 import Image from "next/image";
 import { NextIcon } from "./icons/nextIcon";
 import { CrossIcon } from "./icons/crossIcon";
+import { motion, AnimatePresence } from "framer-motion";
 
 type ProjectModalProps = {
   project: ProjectCardData | null;
   onClose: () => void;
 };
 
+const swipeConfidenceThreshold = 5000;
+
+const swipePower = (offset: number, velocity: number) => {
+  return Math.abs(offset) * velocity;
+};
+
 const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % project!.images.length);
+  const [[page, direction], setPage] = useState([0, 0]);
+
+  const paginate = (newDirection: number) => {
+    setPage(([prev]) => [prev + newDirection, newDirection]);
   };
 
-  const prevImage = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? project!.images.length - 1 : prev - 1,
-    );
-  };
+  const imageIndex = project
+    ? ((page % project.images.length) + project.images.length) %
+      project.images.length
+    : 0;
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -30,69 +36,121 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
       switch (e.key) {
         case "ArrowRight":
-          nextImage();
+          paginate(1);
           break;
         case "ArrowLeft":
-          prevImage();
+          paginate(-1);
           break;
         case "Escape":
           onClose();
           break;
       }
     };
+
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [project, onClose]);
+  }, [onClose, project]);
+
+    useEffect(() => {
+      if (!project) return;
+
+      const originalStyle = window.document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+
+      return () => {
+        document.body.style.overflow = originalStyle;
+      };
+    }, [project]);
 
   if (!project) return null;
 
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      x: 0,
+      opacity: 1,
+    },
+    exit: (direction: number) => ({
+      x: direction < 0 ? 900 : -900,
+      opacity: 0,
+    }),
+  };
+
   return (
-    <div
-      className="fixed z-[99] inset-0 flex flex-col w-screen h-screen bg-primary/80 backdrop-blur-xs"
-      // onClick={onClose}
-    >
-      <div className="flex justify-between items-center p-6 w-full text-text border-b border-border">
-        <div className="flex-1 flex flex-col gap-1 min-w-0">
-          <h3 className="font-semibold text-lg truncate">{project.title}</h3>
+    <div className="fixed inset-0 z-[99] flex flex-col w-screen h-screen bg-primary/80 backdrop-blur-sm">
+      <div className="flex justify-between items-center p-4 sm:p-6 border-b border-border text-text">
+        <div className="flex flex-col">
+          <h3 className="font-semibold text-lg">{project.title}</h3>
           <span className="text-xs text-text-sub">
             {project.type} • {project.date}
           </span>
         </div>
 
-        <h3 className="flex-1 text-center">
-          {currentIndex + 1} / {project.images.length}
+        <h3>
+          {imageIndex + 1} / {project.images.length}
         </h3>
 
-        <div className="flex-1 flex justify-end">
-          <button
-            className="p-3 hover:bg-hover rounded-full cursor-pointer transition-colors duration-150"
-            onClick={onClose}
-          >
-            <CrossIcon size={24} />
-          </button>
-        </div>
+        <button
+          className="hover:bg-hover rounded-full transition-colors"
+          onClick={onClose}
+        >
+          <CrossIcon size={24} />
+        </button>
       </div>
 
-      <div className="flex w-full h-full text-text">
+      <div className="relative flex items-center justify-center w-full h-full overflow-hidden text-text">
         <button
-          className="px-6 h-full hover:bg-hover rotate-180 transition-colors duration-150 cursor-pointer"
-          onClick={prevImage}
+          className="hidden sm:flex absolute left-0 z-20 px-6 hover:bg-hover h-full items-center rotate-180 transition-colors"
+          onClick={() => paginate(-1)}
         >
           <NextIcon size={24} />
         </button>
 
-        <div className="relative flex justify-center items-center p-8 w-full h-full scale-90">
-          <Image
-            src={project.images[currentIndex]}
-            alt=""
-            fill
-            className="object-contain"
-          />
-        </div>
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={page}
+            className="absolute w-full h-full flex items-center justify-center"
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              x: { type: "spring", stiffness: 1000, damping: 50 },
+              opacity: { duration: 0 },
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.25}
+            dragMomentum={false}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x);
+
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(1);
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(-1);
+              }
+            }}
+          >
+            <div className="relative mb-24 w-full h-80 sm:h-full">
+              <Image
+                src={project.images[imageIndex]}
+                alt={project.title}
+                fill
+                className="object-contain select-none"
+                draggable={false}
+              />
+            </div>
+          </motion.div>
+        </AnimatePresence>
 
         <button
-          className="px-6 h-full hover:bg-hover transition-colors duration-150 cursor-pointer"
-          onClick={nextImage}
+          className="hidden sm:flex absolute right-0 z-20 px-6 hover:bg-hover h-full items-center transition-colors"
+          onClick={() => paginate(1)}
         >
           <NextIcon size={24} />
         </button>
