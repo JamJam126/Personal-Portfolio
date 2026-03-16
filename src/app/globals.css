@@ -2,15 +2,19 @@
 
 :root {
   --primary: #0A0A0A;
-  --hover: #262626;
+  --hover: #1A1A1A;
+  --focus: #1D1D1D;
   --border: #262626;
   --text: #FAFAFA;
   --text-sub: #B3B3B3;
+
+  --background: var(--primary);
 }
 
 @theme inline {
   --color-primary: var(--primary);
   --color-hover: var(--hover);
+  --color-focus: var(--focus);
   --color-border: var(--border);
   --color-text: var(--text);
   --color-text-sub: var(--text-sub);
@@ -21,7 +25,13 @@
   }
 }
 
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+
 body {
+  scroll-behavior: smooth;
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter);
