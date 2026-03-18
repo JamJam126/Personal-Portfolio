@@ -136,7 +136,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
               }
             }}
           >
-            <div className="relative mb-24 w-full h-80 sm:h-full">
+            <div className="relative w-full h-80 sm:h-full">
               <Image
                 src={project.images[imageIndex]}
                 alt={project.title}
