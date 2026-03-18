@@ -1,5 +1,11 @@
 import { CIcon, CIconHover } from "./CIcon";
 import { CppIcon, CppIconHover } from "./CppIcon";
+import { CSS3Icon, CSS3IconHover } from "./CSS3Icon";
+import { HTML5Icon, HTML5IconHover } from "./HTML5Icon";
+import { JavaIcon, JavaIconHover } from "./JavaIcon";
+import { JavaScriptIcon, JavaScriptIconHover } from "./JavaScriptIcon";
+import { PostgreSQLIcon, PostgreSQLIconHover } from "./PostgreSQLIcon";
+import { ReactIcon, ReactIconHover } from "./ReactIcon";
 
 type TechIconPair = {
   default: React.FC<{ className?: string; size?: number }>;
@@ -9,6 +15,12 @@ type TechIconPair = {
 const techMap: Record<string, TechIconPair> = {
   C: { default: CIcon, hover: CIconHover },
   Cpp: { default: CppIcon, hover: CppIconHover },
+  Java: { default: JavaIcon, hover: JavaIconHover },
+  'HTML5': { default: HTML5Icon, hover: HTML5IconHover },
+  'CSS3': { default: CSS3Icon, hover: CSS3IconHover },
+  JavaScript: { default: JavaScriptIcon, hover: JavaScriptIconHover },
+  React: { default: ReactIcon, hover: ReactIconHover },
+  PostgreSQL: { default: PostgreSQLIcon, hover: PostgreSQLIconHover },
 };
 
 type TechIconProps = {

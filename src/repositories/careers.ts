@@ -18,6 +18,7 @@ export const careers = [
     technologies: [
       "C",
       "Cpp", 
+      "Java",
     ]
   },
   // {

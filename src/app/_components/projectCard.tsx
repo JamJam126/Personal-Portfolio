@@ -13,7 +13,7 @@ export type ProjectCardData = {
   thumbnailBackground: StaticImageData;
   demoLink?: string;
   src: string;
-  images: StaticImageData[]
+  images: string[]
 };
 
 type ProjectCardProps = {

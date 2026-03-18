@@ -1,5 +1,3 @@
-
-
 export const CppIcon = ({ size = 16 }: { size?: number }) => {
   return (
     <svg
