@@ -2,6 +2,8 @@ import Image from "next/image";
 import { GlobeIcon } from "@/src/components/icons/globeIcon";
 import { Career } from "@/src/types/careers";
 import TechIcon from "@/src/components/icons/technologies/techIcon";
+import { LocationIcon } from "@/src/components/icons/locationIcon";
+import { CalendarIcon } from "@/src/components/icons/calendarIcon";
 
 type CareerDisplayProps = {
   career: Career;
@@ -21,7 +23,9 @@ const CareerDisplay: React.FC<CareerDisplayProps> = ({ career }) => {
           <div className="flex flex-col justify-between min-h-10">
             <h3 className="font-semibold text-text">{career.name}</h3>
 
-            <p className="text-sm text-text-sub">{career.degree}</p>
+            <p className="hidden sm:block text-sm text-text-sub">
+              {career.degree}
+            </p>
           </div>
 
           <div className="flex items-center gap-1 w-fill h-6">
@@ -35,9 +39,18 @@ const CareerDisplay: React.FC<CareerDisplayProps> = ({ career }) => {
           </div>
         </div>
 
-        <p className="font-medium text-sm text-text-sub whitespace-pre">
-          {career.date} • {career.location}
-        </p>
+        <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-3 font-medium text-xs text-text-sub sm:whitespace-pre">
+          <p className="block sm:hidden text-text-sub">{career.degree}</p>
+          <div className="flex gap-1.5 items-center">
+            <CalendarIcon className="block sm:hidden text-text" />
+            <p>{career.date}</p>
+          </div>
+          <p className="hidden sm:block">•</p>
+          <div className="flex gap-1.5 items-center">
+            <LocationIcon className="block sm:hidden text-text" />
+            <p>{career.location}</p>
+          </div>
+        </div>
       </div>
 
       <ul className="text-sm text-text-sub list-disc pl-5 space-y-1">

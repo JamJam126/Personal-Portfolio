@@ -48,11 +48,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-1 flex items-center p-4 h-full w-full sm:hidden">
-            <h1 className="text-text font-semibold">{"Can't Afford Responsive Yet"}</h1>
-          </div>
-
-          <div className="flex-1 p-4 hidden sm:block">
+          <div className="flex-1 p-4">
             <CareerDisplay career={selected} />
           </div>
         </div>
