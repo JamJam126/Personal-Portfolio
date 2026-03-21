@@ -51,16 +51,16 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [onClose, project]);
 
-    useEffect(() => {
-      if (!project) return;
+  useEffect(() => {
+    if (!project) return;
 
-      const originalStyle = window.document.body.style.overflow;
-      document.body.style.overflow = "hidden";
+    const originalStyle = window.document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-      return () => {
-        document.body.style.overflow = originalStyle;
-      };
-    }, [project]);
+    return () => {
+      document.body.style.overflow = originalStyle;
+    };
+  }, [project]);
 
   if (!project) return null;
 

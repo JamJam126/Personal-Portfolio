@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
   return (
     <footer
       className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 
-                p-4 sm:p-8 w-full bg-primary border-t border-b border-border text-text-sub"
+                p-4 sm:p-4 w-full bg-primary border-t border-b border-border text-text-sub"
     >
-      <h3 className="font-medium text-sm">Last updated: March 2026</h3>
+      <h3 className="font-medium text-xs">© 2026 Vong Rithea</h3>
       <div className="flex gap-8 sm:gap-4">
         <Link
           className="flex items-center justify-center w-6 h-6 

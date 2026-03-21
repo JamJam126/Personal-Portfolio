@@ -1,8 +1,47 @@
 import * as ChatApp from '@/src/assets/projects/chatApp';
 import * as TWatch from '@/src/assets/projects/tWatch';
 import * as Collaboard from '@/src/assets/projects/collaboard';
+import * as Codifyx from '@/src/assets/projects/codifyx';
+import * as Sastra from '@/src/assets/projects/sastra';
 
 export const projectsData = [
+  {
+    title: 'Codifyx',
+    type: 'Web Application',
+    date: 'Jan 2026',
+    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
+    demoLink: '',
+    src: 'https://github.com/sokundeny/codifyx',
+    thumbnail: Codifyx.CodifyxThumb,
+    thumbnailBackground: Codifyx.CodifyxThumbBg,
+    images: [
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773805029/codifyx-1_v6jfnn.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773805029/codifyx-2_cgmqs1.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773805029/codifyx-3_gm3niy.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773805029/codifyx-4_eyuigu.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773805029/codifyx-5_qkus0n.png',
+    ],
+  },
+  {
+    title: 'Sastra',
+    type: 'Web Application',
+    date: 'Jan 2026',
+    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
+    demoLink: '',
+    src: 'https://github.com/sokundeny/codifyx',
+    thumbnail: Sastra.SastraThumb,
+    thumbnailBackground: Sastra.SastraThumbBg,
+    images: [
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079745/sastra-1_z28rik.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-2_rsjqiu.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079743/sastra-3_zjomms.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079743/sastra-4_haxstz.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079743/sastra-5_ylhbae.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-6_xowknj.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-7_ilgpfp.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-8_atdyco.png'
+    ],
+  },
   {
     title: 'Chat Application',
     type: 'Desktop Application',
@@ -37,25 +76,6 @@ export const projectsData = [
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727358/tWatch-5_ykvhxv.png',
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727356/tWatch-6_yj1hcl.png',
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727356/tWatch-7_iuktxm.png',
-    ],
-  },
-  {
-    title: 'Collaboard',
-    type: 'Web Application',
-    date: 'March 2025',
-    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
-    demoLink: '',
-    src: 'https://github.com/JamJam126/Collaboard',
-    thumbnail: Collaboard.CollaboardThumb,
-    thumbnailBackground: Collaboard.CollaboardThumbBg,
-    images: [
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727751/collaboard-1_ldmhda.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727751/collaboard-2_fazlzs.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727751/collaboard-3_qlxqhh.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727751/collaboard-4_gmcdvj.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727751/collaboard-5_atfvxm.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727752/collaboard-6_klw2zd.png',
-      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1773727753/collaboard-7_bf0iwk.png',
     ],
   },
   {

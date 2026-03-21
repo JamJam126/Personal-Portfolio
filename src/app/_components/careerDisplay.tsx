@@ -13,7 +13,7 @@ const CareerDisplay: React.FC<CareerDisplayProps> = ({ career }) => {
   return (
     <div className="flex flex-col gap-4 max-w-120">
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2.5">
+        <div className="flex items-center sm:items-start gap-2.5">
           <Image
             alt={career.name}
             src={career.logo}
@@ -28,7 +28,7 @@ const CareerDisplay: React.FC<CareerDisplayProps> = ({ career }) => {
             </p>
           </div>
 
-          <div className="flex items-center gap-1 w-fill h-6">
+          <div className="flex flex-col justify-start sm:justify-center gap-1 w-fill h-10 sm:h-6">
             <a
               href={career.website}
               target="_blank"

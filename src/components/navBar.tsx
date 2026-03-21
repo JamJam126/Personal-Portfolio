@@ -10,7 +10,7 @@ const NavBar: React.FC = () => {
           </Link>
         </div>
 
-        <div className="flex space-x-4 sm:space-x-8 text-text font-medium">
+        <div className="flex space-x-4 sm:space-x-8 font-medium text-sm sm:text-[16px] text-text">
           <Link href="/#about" className="hover:text-accent transition-colors">
             About Me
           </Link>
