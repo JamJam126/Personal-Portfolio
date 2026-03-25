@@ -28,25 +28,30 @@ export default function StarBackground({
         left: Math.random() * 100,
         size: Math.random() < 0.5 ? 1 : 2,
         duration: 50 + Math.random() * 100,
+        travel: 80,
       })),
     [starCount],
   );
 
   if (!showStars) return null; 
-
+ 
   return (
     <div className="starfield fixed top-60 left-0 w-screen h-screen -z-10">
       {stars.map((star, i) => (
         <div
           key={i}
           className="star"
-          style={{
-            top: `${star.top}vh`,
-            left: `${star.left}vw`,
-            width: `${star.size}px`,
-            height: `${star.size}px`,
-            animationDuration: `${star.duration}s`,
-          }}
+          style={
+            {
+              top: `${star.top}vh`,
+              left: `${star.left}vw`,
+              width: `${star.size}px`,
+              height: `${star.size}px`,
+              animationDuration: `${star.duration}s`,
+              animationDelay: `-${Math.random() * star.duration}s`,
+              "--travel": `${star.travel}vh`,
+            } as React.CSSProperties
+          }
         />
       ))}
     </div>

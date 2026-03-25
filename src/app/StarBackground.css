@@ -1,6 +1,6 @@
 .starfield {
   position: fixed;
-  top: 60;
+  top: 40;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -27,7 +27,7 @@
   }
 
   100% {
-    transform: translateY(-120vh);
+    transform: translateY(calc(var(--travel) * -1));
   }
 }
 
