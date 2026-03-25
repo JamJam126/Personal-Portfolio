@@ -36,13 +36,18 @@ const TechIcon: React.FC<TechIconProps> = ({ name, className, size }) => {
   const DefaultIcon = iconPair.default;
   const HoverIcon = iconPair.hover;
 
+  const iconSize = size ?? 12;
+
   return (
-    <div className="relative inline-block w-3 h-3">
-      <div className="absolute transition-opacity duration-300 opacity-100 group-hover:opacity-0">
-        <DefaultIcon className={className} size={12} />
+    <div
+      className="relative inline-block group"
+      style={{ width: iconSize, height: iconSize }}
+    >
+      <div className="absolute inset-0 transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+        <DefaultIcon className={className} size={iconSize} />
       </div>
-      <div className="absolute transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-        <HoverIcon className={className} size={12} />
+      <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+        <HoverIcon className={className} size={iconSize} />
       </div>
     </div>
   );

@@ -42,6 +42,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
           paginate(-1);
           break;
         case "Escape":
+          setPage([0, 0]);
           onClose();
           break;
       }
@@ -80,25 +81,30 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[99] flex flex-col w-screen h-screen bg-primary/80 backdrop-blur-sm">
-      <div className="flex justify-between items-center p-4 sm:p-6 border-b border-border text-text">
-        <div className="flex flex-col">
+    <div className="fixed inset-0 z-99 flex flex-col w-screen h-screen bg-primary/80 backdrop-blur-sm">
+      <div className="flex justify-between items-center p-4 sm:p-6 w-full border-b border-border text-text">
+        <div className="flex flex-col flex-1">
           <h3 className="font-semibold text-lg">{project.title}</h3>
           <span className="text-xs text-text-sub">
             {project.type} • {project.date}
           </span>
         </div>
 
-        <h3>
+        <h3 className="flex-1 text-center">
           {imageIndex + 1} / {project.images.length}
         </h3>
 
-        <button
-          className="hover:bg-hover rounded-full transition-colors"
-          onClick={onClose}
-        >
-          <CrossIcon size={24} />
-        </button>
+        <div className="flex-1 flex justify-end">
+          <button
+            className="p-2 hover:bg-hover rounded-full transition-colors cursor-pointer"
+            onClick={() => {
+              setPage([0, 0]);
+              onClose();
+            }}
+          >
+            <CrossIcon size={24} />
+          </button>
+        </div>
       </div>
 
       <div className="relative flex items-center justify-center w-full h-full overflow-hidden text-text">

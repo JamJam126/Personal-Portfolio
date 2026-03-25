@@ -27,7 +27,7 @@ export const PostgreSQLIcon = ({ size = 16 }: { size?: number }) => {
       </g>
       <defs>
         <clipPath id="clip0_479_1238">
-          <rect width={size} height={size} fill="white" />
+          <rect width={24} height={24} fill="white" />
         </clipPath>
       </defs>
     </svg>
@@ -63,7 +63,7 @@ export const PostgreSQLIconHover = ({ size = 16 }: { size?: number }) => {
       </g>
       <defs>
         <clipPath id="clip0_479_1232">
-          <rect width={size} height={size} fill="white" />
+          <rect width={24} height={24} fill="white" />
         </clipPath>
       </defs>
     </svg>

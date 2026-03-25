@@ -19,6 +19,11 @@ export const careers = [
       "C",
       "Cpp", 
       "Java",
+      'HTML5',
+      'CSS3',
+      'JavaScript',
+      'React',
+      'PostgreSQL'
     ]
   },
   // {

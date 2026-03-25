@@ -64,11 +64,11 @@ const CareerDisplay: React.FC<CareerDisplayProps> = ({ career }) => {
         <div className="flex gap-2">
           {career.technologies.map((t, index) => (
             <div
-              className="group flex justify-center items-center px-2 py-2 hover:bg-hover 
+              className="group flex justify-center items-center px-2 py-1.5 hover:bg-hover 
                         border border-border rounded-sm text-text transition-all duration-300"
               key={index}
             >
-              <TechIcon name={t} />
+              <TechIcon name={t} size={16} />
             </div>
           ))}
         </div>
