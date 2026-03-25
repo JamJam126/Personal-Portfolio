@@ -3,13 +3,14 @@ import * as TWatch from '@/src/assets/projects/tWatch';
 import * as Collaboard from '@/src/assets/projects/collaboard';
 import * as Codifyx from '@/src/assets/projects/codifyx';
 import * as Sastra from '@/src/assets/projects/sastra';
+import * as Sudoku from '@/src/assets/projects/sudoku';
 
 export const projectsData = [
   {
     title: 'Codifyx',
     type: 'Web Application',
     date: 'Jan 2026',
-    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
+    description: 'A portfolio website for a software startup that delivers high-quality digital products.',
     demoLink: '',
     src: 'https://github.com/sokundeny/codifyx',
     thumbnail: Codifyx.CodifyxThumb,
@@ -25,10 +26,10 @@ export const projectsData = [
   {
     title: 'Sastra',
     type: 'Web Application',
-    date: 'Jan 2026',
-    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
+    date: 'Aug 2025',
+    description: 'A Khmer-language e-learning platform offering online courses, integrated payments, and interactive quizzes.',
     demoLink: '',
-    src: 'https://github.com/sokundeny/codifyx',
+    src: 'https://github.com/pychey/Online-Learning-Platform',
     thumbnail: Sastra.SastraThumb,
     thumbnailBackground: Sastra.SastraThumbBg,
     images: [
@@ -40,6 +41,24 @@ export const projectsData = [
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-6_xowknj.png',
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-7_ilgpfp.png',
       'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774079744/sastra-8_atdyco.png'
+    ],
+  },
+  {
+    title: 'Multiplayer Sudoku',
+    type: 'Mobile Game',
+    date: 'Dec 2025',
+    description: 'A real-time online Sudoku platform that lets players enjoy solo puzzles or compete against others in fast-paced head-to-head matches.',
+    demoLink: '',
+    src: 'https://github.com/pychey/Sudoku-The-Best',
+    thumbnail: Sudoku.SudokuThumb,
+    thumbnailBackground: Sudoku.SudokuThumbBg,
+    images: [
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406483/sudoku-1_k7cndy.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406483/sudoku-2_nzbjzu.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406484/sudoku-3_jjcqnp.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406486/sudoku-4_jntute.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406487/sudoku-5_d12wkn.png',
+      'https://res.cloudinary.com/dsdgi7f7f/image/upload/v1774406483/sudoku-6_fwlxi0.png'
     ],
   },
   {
@@ -82,7 +101,7 @@ export const projectsData = [
     title: 'Collaboard',
     type: 'Web Application',
     date: 'March 2025',
-    description: 'A real-time chat desktop application in Java, featuring multi-user messaging, live updates, and a user-friendly interface.',
+    description: 'A Trello-inspired website with a real-time Kanban board that supports multi-user collaboration and task management.',
     demoLink: '',
     src: 'https://github.com/JamJam126/Collaboard',
     thumbnail: Collaboard.CollaboardThumb,
