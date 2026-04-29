@@ -23,7 +23,12 @@ export const careers = [
       'CSS3',
       'JavaScript',
       'React',
-      'PostgreSQL'
+      'ExpressJS',
+      'Sequelize',
+      'PostgreSQL',
+      'Dart',
+      'Flutter',
+      'Unity',
     ]
   },
   // {
